@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TJF Financial - DIP Lending Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(44, 82, 130, 0.8)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .speed-highlight {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 600px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .speed-highlight h2 {
+            font-size: 2.2rem;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #1a365d;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #ffed4a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #f8fafc;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a365d;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a365d;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1926&q=80') center/cover;
+            height: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .highlight-box {
+            background: #e6fffa;
+            padding: 1.5rem;
+            border-left: 4px solid #38b2ac;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #ffd700;
+            color: #1a365d;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #ffed4a;
+            transform: translateY(-2px);
+        }
+
+        .contact-info-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-info-section p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .speed-highlight h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">TJF Financial</div>
+                <div class="contact-info">
+                    tjffinancial.com | Rapid DIP Lending Solutions
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>DIP Lending. Delivered Fast.</h1>
+                <p class="subtitle">Professional debtor-in-possession financing from $1M to $50M</p>
+                
+                <div class="speed-highlight">
+                    <h2>Under 3 Days</h2>
+                    <p>Our unmatched speed gets your DIP financing ready in under 3 days - faster than anyone in the industry.</p>
+                </div>
+                
+                <a href="#contact" class="cta-button">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Our DIP Lending Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚡</div>
+                    <h3>Rapid Processing</h3>
+                    <p>Unparalleled speed with DIP financing ready in under 3 days. Our streamlined process eliminates delays and gets you the capital you need fast.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">💼</div>
+                    <h3>$1M - $50M Range</h3>
+                    <p>Flexible lending solutions for small to medium-sized loans. We provide the right amount of capital for your specific restructuring needs.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Bankruptcy Expertise</h3>
+                    <p>Deep experience in Chapter 7 and Chapter 11 bankruptcies, with specialized knowledge in restructuring and refinancing solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">Wall Street Expertise. Unmatched Speed.</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>TJF Financial combines the expertise of top Wall Street firms with the specialized knowledge of leading bankruptcy law groups to deliver unparalleled DIP lending solutions.</p>
+                    
+                    <div class="highlight-box">
+                        <strong>Our Competitive Advantage:</strong> We can prepare and execute DIP financing in under 3 days - a speed that is unmatched in the industry.
+                    </div>
+                    
+                    <p>Our team brings together decades of experience in:</p>
+                    <ul style="margin: 1rem 0; padding-left: 2rem;">
+                        <li>Bankruptcy law and restructuring</li>
+                        <li>Chapter 7 and Chapter 11 proceedings</li>
+                        <li>Commercial lending and refinancing</li>
+                        <li>Investment banking and capital markets</li>
+                    </ul>
+                    
+                    <p>When time is critical and capital is essential, TJF Financial delivers the expertise and speed your business needs to navigate through restructuring successfully.</p>
+                </div>
+                <div class="about-image fade-in"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Ready to Move Fast?</h2>
+            <div class="contact-content">
+                <div class="contact-form fade-in">
+                    <h3>Get Your DIP Financing Started</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="amount">Financing Amount Needed</label>
+                            <input type="text" id="amount" name="amount" placeholder="e.g., $5M">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your DIP financing needs and timeline..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info-section fade-in">
+                    <h3>Contact Information</h3>
+                    <p><strong>TJF Solutions LLC</strong><br>
+                    Doing Business As: TJF Financial</p>
+                    
+                    <p><strong>Website:</strong><br>
+                    tjffinancial.com</p>
+                    
+                    <p><strong>Specialization:</strong><br>
+                    DIP Lending • Bankruptcy Law • Restructuring</p>
+                    
+                    <p><strong>Loan Range:</strong><br>
+                    $1M - $50M</p>
+                    
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                        <h4 style="color: #ffd700; margin-bottom: 1rem;">Why Choose TJF Financial?</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">✓ Under 3-day processing time</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Wall Street expertise</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Bankruptcy law specialists</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Proven track record</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TJF Solutions LLC (DBA: TJF Financial). All rights reserved. | tjffinancial.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create email content
+            const subject = encodeURIComponent(`DIP Financing Inquiry from ${data.name}`);
+            const body = encodeURIComponent(
+                `New DIP Financing Inquiry\n\n` +
+                `Name: ${data.name}\n` +
+                `Email: ${data.email}\n` +
+                `Company: ${data.company || 'Not provided'}\n` +
+                `Phone: ${data.phone || 'Not provided'}\n` +
+                `Financing Amount: ${data.amount || 'Not specified'}\n\n` +
+                `Message:\n${data.message}`
+            );
+            
+            // Create mailto links for all recipients
+            const recipients = ['ric@tjffinancial.com', 'michael@tjffinancial.com', 'jeremy@tjffinancial.com'];
+            
+            // Open email client with the first recipient (others can be added manually)
+            window.location.href = `mailto:${recipients.join(',')}?subject=${subject}&body=${body}`;
+            
+            // Show success message
+            alert('Thank you for your inquiry! Your email client should open with a pre-filled message. If it doesn\'t open automatically, please email us directly at ric@tjffinancial.com, michael@tjffinancial.com, and jeremy@tjffinancial.com');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
