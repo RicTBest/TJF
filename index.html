@@ -517,13 +517,13 @@
             );
             
             // Create mailto links for all recipients
-            const recipients = ['ric@tjffinancial.com', 'michael@tjffinancial.com', 'jeremy@tjffinancial.com'];
+            const recipients = ['ric@tjffinancial.com', 'jeremy@tjffinancial.com'];
             
             // Open email client with the first recipient (others can be added manually)
             window.location.href = `mailto:${recipients.join(',')}?subject=${subject}&body=${body}`;
             
             // Show success message
-            alert('Thank you for your inquiry! Your email client should open with a pre-filled message. If it doesn\'t open automatically, please email us directly at ric@tjffinancial.com, michael@tjffinancial.com, and jeremy@tjffinancial.com');
+            alert('Thank you for your inquiry! Your email client should open with a pre-filled message. If it doesn\'t open automatically, please email us directly at ric@tjffinancial.com, and jeremy@tjffinancial.com');
             
             // Reset form
             this.reset();
